@@ -16,28 +16,29 @@ RSpec.feature "PatientAppts", type: :feature do
     expect(page).to have_content
   end
 
-  it "display a patient's appt start time" do
+  before do
     visit api_v1_patient_path(patient)
+  end
+
+  it "display a patient's appt start time" do
     expect(page).to have_content patient.start_time
   end
 
   it "display a patient's appt end time" do
-    visit api_v1_patient_path(patient)
     expect(page).to have_content patient.end_time
   end
 
   it "displays a patient's first name" do
-    visit api_v1_patient_path(patient)
     expect(page).to have_content patient.first_name
   end
 
   it "display a patient's appt last name time" do
-    visit api_v1_patient_path(patient)
     expect(page).to have_content patient.last_name
   end
 
   it "display any special comments about patient" do
-    visit api_v1_patient_path(patient)
     expect(page).to have_content patient.comments
   end
+
+
 end

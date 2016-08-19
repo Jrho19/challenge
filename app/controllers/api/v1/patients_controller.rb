@@ -13,7 +13,7 @@ class Api::V1::PatientsController < ApplicationController
   def create
     patient = Patient.new(patient_params)
 
-    # if the patient is saved successfully than respond with json data and status code 201
+    # if the patient is saved successfully then respond with json data and status code 201
     if patient.save
       render json: patient, status: 201
     else
@@ -23,7 +23,8 @@ class Api::V1::PatientsController < ApplicationController
 
   def update
     patient = find_params
-
+    
+    # if the patient is updated successfully then respond with json data and status code 201
     if patient.update(patient_params)
       render json: patient, status: 200
     else
